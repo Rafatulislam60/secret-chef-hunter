@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-indigo-200 flex justify-around lg:px-8 text-Black-content">
+    <div className="navbar bg-indigo-200 flex justify-around py-5 lg:px-8 text-Black-content">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="lg:hidden">
@@ -50,43 +50,44 @@ const Header = () => {
       <div className="hidden lg:flex">
         <ul className="inline-flex flex-row lg:text-xl font-semibold">
           <li className="mr-4">
-            <Link
+            <NavLink
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
               to="/"
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-4">
-            <Link
+            <NavLink
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
               to="/blog"
             >
               Blog
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-4">
-            <Link
+            <NavLink
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
               to="/register"
             >
               Register
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-4">
-            <Link
+            <NavLink
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
+              to="/login"
             >
               Login
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
