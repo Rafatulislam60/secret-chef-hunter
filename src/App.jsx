@@ -5,7 +5,6 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>Ready for starting</div>
   )
 }
 
