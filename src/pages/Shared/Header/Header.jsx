@@ -42,7 +42,7 @@ const Header = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost normal-case text-xl lg:text-3xl font-bold"
+          className="btn btn-ghost normal-case text-xl lg:text-4xl font-bold"
         >
           Secret Chef Hunter
         </Link>
