@@ -33,10 +33,10 @@ const Header = () => {
               <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
-              <NavLink to="/login">Login</NavLink>
+              <NavLink to="/register">Register</NavLink>
             </li>
             <li>
-              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </li>
           </ul>
         </div>
@@ -74,8 +74,9 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
+              to="/register"
             >
-              Login
+              Register
             </Link>
           </li>
           <li className="mr-4">
@@ -83,9 +84,8 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
-              to="/register"
             >
-              Register
+              Login
             </Link>
           </li>
         </ul>
