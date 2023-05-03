@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import chef from "../../../assets/chef.png.png";
 import ChefCard from "../../ChefCard/ChefCard";
+import ExtraSection from "../../ExtraSection/ExtraSection";
 
 const Home = () => {
   return (
@@ -32,6 +33,9 @@ const Home = () => {
       </div>
       <div className="">
         <ChefCard></ChefCard>
+      </div>
+      <div>
+        <ExtraSection></ExtraSection>
       </div>
     </>
   );
