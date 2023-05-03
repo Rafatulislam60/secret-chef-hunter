@@ -46,7 +46,7 @@ const Register = () => {
               className="input input-bordered"
             />
           </div>
-          <div className=" flex inline-flex">
+          <div>
             <p>Do you have existing account?<NavLink to="/login" className="label-text-alt link link-hover text-base font-semibold pl-2">
               Login
             </NavLink></p>
