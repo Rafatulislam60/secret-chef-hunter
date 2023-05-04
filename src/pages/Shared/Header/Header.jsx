@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Header = () => {
+  const { user,logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="navbar bg-indigo-200 flex justify-around py-5 lg:px-8 text-Black-content">
       <div className="navbar-start">
@@ -66,17 +75,31 @@ const Header = () => {
               Blog
             </NavLink>
           </li>
-          <li className="mr-4">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-blue-600" : "default"
-              }
-              to="/login"
-            >
-               <button className="btn">Login</button>
-            </NavLink>
-          </li>
+
+          {user?.email ? (
+            <li className="mr-4">
+              <button onClick={handleLogOut} className="btn">
+                Logout
+              </button>
+            </li>
+          ) : (
+            <li className="mr-4">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "default"
+                }
+                to="/login"
+              >
+                <button className="btn">Login</button>
+              </NavLink>
+            </li>
+          )}
         </ul>
+        {user?.email ? <div className="avatar">
+          <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img src={user?.photoURL} />
+          </div>
+        </div> : ""}
       </div>
     </div>
   );

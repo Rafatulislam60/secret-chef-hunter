@@ -1,28 +1,33 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import app from "../../firebase/firebase.config";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const auth = getAuth(app);
-
   const handleRegister = (event) => {
     event.preventDefault();
-    if (email && password) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setError(" Need one capital letter");
+      return;
+    }
+    else if(password.length<6){
+      setError ("Password need to be at least 6 character")
+      return;
+    }
+    if ((name, email, password)) {
+      registerUser(email, password)
+        .then((result) => {
+          console.log(result.user);
         })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+        .catch((err) => {
+          console.log(err.message);
         });
-    } else {
-      setError("Provide email and password");
     }
   };
 
@@ -44,7 +49,8 @@ const Register = () => {
           </div>
           <div
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control" required
+            className="form-control"
+            required
           >
             <label className="label">
               <span className="label-text">Email</span>
@@ -57,7 +63,8 @@ const Register = () => {
           </div>
           <div
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control" required
+            className="form-control"
+            required
           >
             <label className="label">
               <span className="label-text">Password</span>
