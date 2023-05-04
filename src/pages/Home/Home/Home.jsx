@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import chef from "../../../assets/chef.png.png";
 import ChefCard from "../../ChefCard/ChefCard";
 import ExtraSection from "../../ExtraSection/ExtraSection";
+import ExtraSectionTwo from "../../ExtraSection/ExtraSectionTwo";
 
 const Home = () => {
   return (
@@ -36,6 +37,9 @@ const Home = () => {
       </div>
       <div>
         <ExtraSection></ExtraSection>
+      </div>
+      <div>
+        <ExtraSectionTwo></ExtraSectionTwo>
       </div>
     </>
   );

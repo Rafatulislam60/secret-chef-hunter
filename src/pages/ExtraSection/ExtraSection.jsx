@@ -10,7 +10,7 @@ const ExtraSection = () => {
     >
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
-        <div className=" flex gap-32">
+        <div className=" flex flex-col lg:flex-row lg:gap-32">
           <div className="flex flex-col">
             <h2 className="text-7xl font-semibold">43</h2>
             <p className="text-2xl font-semibold text-warning">Most Delicious Dishes</p>
