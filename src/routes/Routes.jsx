@@ -21,7 +21,6 @@ const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <ChefDetails></ChefDetails>
-                // loader: ({params} => fetch(``)
             },
             {
                 path: 'blog',

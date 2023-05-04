@@ -33,9 +33,6 @@ const Header = () => {
               <NavLink to="/blog">Blog</NavLink>
             </li>
             <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
-            <li>
               <NavLink to="/login">Login</NavLink>
             </li>
           </ul>
@@ -47,8 +44,8 @@ const Header = () => {
           Secret Chef Hunter
         </Link>
       </div>
-      <div className="hidden lg:flex">
-        <ul className="inline-flex flex-row lg:text-xl font-semibold">
+      <div className="hidden lg:flex ">
+        <ul className="inline-flex flex-row items-center justify-center lg:text-xl font-semibold">
           <li className="mr-4">
             <NavLink
               className={({ isActive }) =>
@@ -74,19 +71,9 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "text-blue-600" : "default"
               }
-              to="/register"
-            >
-              Register
-            </NavLink>
-          </li>
-          <li className="mr-4">
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-blue-600" : "default"
-              }
               to="/login"
             >
-              Login
+               <button className="btn">Login</button>
             </NavLink>
           </li>
         </ul>
