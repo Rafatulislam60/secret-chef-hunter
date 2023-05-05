@@ -1,15 +1,17 @@
 import {
-    GithubAuthProvider,
-    GoogleAuthProvider,
-    getAuth,
-    signInWithPopup,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
 } from "firebase/auth";
 import React, { useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import app from "../../firebase/firebase.config";
 
 const SocialLogin = () => {
   const [user, setUser] = useState({});
+  const Navigate = useNavigate();
   const auth = getAuth(app);
   const GoogleProvider = new GoogleAuthProvider();
   const GithubProvider = new GithubAuthProvider();
@@ -19,6 +21,7 @@ const SocialLogin = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        Navigate(from, { replace: true });
         console.log(user);
       })
       .catch((error) => {
@@ -32,6 +35,7 @@ const SocialLogin = () => {
       .then((result) => {
         const loggedUser = result.user;
         setUser(loggedUser);
+        Navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
