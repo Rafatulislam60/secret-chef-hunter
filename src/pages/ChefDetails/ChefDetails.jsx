@@ -37,7 +37,7 @@ const ChefDetails = () => {
           <div className="mx-auto text-center">
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6 text-xl">{bio}</p>
-            <hr />
+            <hr className="mb-3 h-1 bg-base-900" />
             <p className="text-lg font-semibold">
               <FontAwesomeIcon icon={faBriefcase} />{" "}
               <label htmlFor="">Experience:</label> {years_of_experience}

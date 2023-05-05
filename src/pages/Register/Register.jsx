@@ -7,6 +7,7 @@ const Register = () => {
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -31,13 +32,13 @@ const Register = () => {
     }
   };
 
-  console.log(email, password);
+  // console.log(email, password,name, photoURL);
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
           <p className="text-error text-lg">{error}</p>
-          <div className="form-control" required>
+          <div onChange={(e) => setName(e.target.value)} className="form-control" required>
             <label className="label">
               <span className="label-text">Name</span>
             </label>
@@ -75,13 +76,14 @@ const Register = () => {
               className="input input-bordered"
             />
           </div>
-          <div className="form-control" required>
+          <div className="form-control" onChange={(e) => setPhotoURL(e.target.value)} required>
             <label className="label">
               <span className="label-text">Photo URL</span>
             </label>
             <input
               type="url"
-              placeholder="photoURL"
+              name="photo"
+              placeholder="Photo URL"
               className="input input-bordered"
             />
           </div>

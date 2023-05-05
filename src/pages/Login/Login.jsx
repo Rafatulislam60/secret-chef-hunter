@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+  const Navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/category";
 
@@ -14,11 +15,11 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // const form = event.target;
-    // const email = event.target.email.value;
-    // const password = event.target.password.value
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-
+    // console.log(email, password);
     if ((email, password)) {
       loginUser(email, password)
         .then((result) => {
@@ -31,20 +32,20 @@ const Login = () => {
     }
   };
 
-  const handleEmail = (e) => {
-    const emailInput = e.target.value;
-    setEmail(emailInput);
-  }
-  const handlePassword = (e) => {
-    const passwordInput = e.target.value;
-    setPassword(passwordInput);
-    if (passwordInput.length < 6) {
-      setError("Provide 6 digit password")
-    }
-    else{
-      setError("");
-    }
-  }
+  // const handleEmail = (e) => {
+  //   const emailInput = e.target.value;
+  //   setEmail(emailInput);
+  // }
+  // const handlePassword = (e) => {
+  //   const passwordInput = e.target.value;
+  //   setPassword(passwordInput);
+    // if (passwordInput.length < 6) {
+    //   setError("Provide 6 digit password")
+    // }
+    // else{
+    //   setError("");
+    // }
+  // }
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -59,7 +60,7 @@ const Login = () => {
               <input
                 type="text"
                 name="email"
-                onChange={handleEmail}
+                // onChange={handleEmail}
                 placeholder="email"
                 className="input input-bordered"
               />
@@ -71,7 +72,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                onChange={handlePassword}
+                // onChange={handlePassword}
                 placeholder="password"
                 className="input input-bordered"
               />

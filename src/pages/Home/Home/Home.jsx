@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 import chef from "../../../assets/chef.png.png";
 import ChefCard from "../../ChefCard/ChefCard";
@@ -32,14 +33,20 @@ const Home = () => {
           <img src={chef} alt="" />
         </div>
       </div>
-      <div className="">
-        <ChefCard></ChefCard>
+      <div>
+        <LazyLoad>
+          <ChefCard></ChefCard>
+        </LazyLoad>
       </div>
       <div>
-        <ExtraSection></ExtraSection>
+        <LazyLoad>
+          <ExtraSection></ExtraSection>
+        </LazyLoad>
       </div>
       <div>
-        <ExtraSectionTwo></ExtraSectionTwo>
+        <LazyLoad>
+          <ExtraSectionTwo></ExtraSectionTwo>
+        </LazyLoad>
       </div>
     </>
   );
