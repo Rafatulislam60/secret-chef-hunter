@@ -6,7 +6,7 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./privateRoute";
 
 const router = createBrowserRouter([
   {

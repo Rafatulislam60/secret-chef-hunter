@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Recipes from "./Recipes";
 
 const ChefDetails = () => {
   const [ChefDetails, setChefDetails] = useState([]);
@@ -13,7 +14,7 @@ const ChefDetails = () => {
   // console.log(id);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories/${id}`)
+    fetch(`https://secret-chef-hunter-server-rafatulislam60.vercel.app/categories/${id}`)
       .then((res) => res.json())
       .then((data) => setChefDetails(data.singleChef));
   }, []);
@@ -27,11 +28,6 @@ const ChefDetails = () => {
     likes,
     recipes,
   } = ChefDetails;
-
-  // const navigation = useNavigation()
-  // if (navigation.state === 'loading') {
-  //   return <h2 className="text-4xl font-semibold text-center">Loading</h2>
-  // }
 
   return (
     <div>
@@ -58,10 +54,10 @@ const ChefDetails = () => {
         </div>
       </div>
 
-      <div className="grid bg-base-200 lg:grid-cols-3 mb-10">
-        {/* {ChefDetails.recipes.map((ChefDetail) => (
+      <div className="grid bg-base-200 lg:grid-cols-3 my-10 lg:mx-10">
+        {ChefDetails?.recipes?.map((ChefDetail) => (
           <Recipes key={ChefDetail.id} ChefDetail={ChefDetail}></Recipes>
-        ))} */}
+        ))}
       </div>
     </div>
   );

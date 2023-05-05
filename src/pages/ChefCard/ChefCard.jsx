@@ -7,7 +7,7 @@ const ChefCard = () => {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://secret-chef-hunter-server-rafatulislam60.vercel.app/categories")
       .then((response) => response.json())
       .then((data) => setChefs(data));
   }, []);
