@@ -12,6 +12,9 @@ import app from "../../firebase/firebase.config";
 const SocialLogin = () => {
   const [user, setUser] = useState({});
   const Navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/category";
+
   const auth = getAuth(app);
   const GoogleProvider = new GoogleAuthProvider();
   const GithubProvider = new GithubAuthProvider();
